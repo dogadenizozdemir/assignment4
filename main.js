@@ -37,3 +37,22 @@ function renderTasks() {
         taskList.appendChild(taskDiv);
     });
 }
+
+loadTasksBtn.addEventListener('click', async () => {
+    statusMessage.textContent = 'Loading tasks...';
+    
+    try {
+        const rawTasks = await fetchTasks();
+        
+        const jsonString = JSON.stringify(rawTasks);
+        const parsedTasks = JSON.parse(jsonString);
+        
+        const taskInstances = parsedTasks.map(t => new Task(t.id, t.title, t.completed));
+        
+        taskManager.setTasks(taskInstances);
+        renderTasks();
+        statusMessage.textContent = '';
+    } catch (error) {
+        statusMessage.textContent = 'Error loading tasks.';
+    }
+});
