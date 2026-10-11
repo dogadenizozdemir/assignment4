@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+#taskList {
+    margin-top: 20px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+/* Görev tamamlandığında üstünü çizmek için gereken kısım */
+.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+button {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
